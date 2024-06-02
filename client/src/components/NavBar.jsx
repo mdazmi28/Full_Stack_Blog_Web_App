@@ -1,15 +1,15 @@
 // import React from 'react';
 
 import {useEffect, useState} from "react";
-import {navList} from "../APIRequest/APIRequest.js";
+import {categories} from "../APIRequest/APIRequest.js";
 
 const NavBar = () => {
 
-    const [NavIteam, setNavIteams] = useState([])
+    const [Categories, setCategories] = useState([])
     useEffect(() => {
         (async ()=>{
-            let res = await navList()
-            setNavIteams(res)
+            let res = await categories()
+            setCategories(res)
         })()
     }, []);
     return (
@@ -27,8 +27,8 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         
                         {
-                            NavIteam.map((item, index) => (
-                                <li key={index}><a>{item['navItem']}</a></li>
+                            Categories.map((item, index) => (
+                                <li key={index}><a>{item['category']}</a></li>
                             ))
                         }
                     </ul>
@@ -39,8 +39,8 @@ const NavBar = () => {
                 <ul className="menu menu-horizontal px-1">
                     
                     {
-                        NavIteam.map((item, index) => (
-                            <li key={index}><a>{item['navItem']}</a></li>
+                        Categories.map((item, index) => (
+                            <li key={index}><a>{item['category']}</a></li>
                         ))
                     }
                 </ul>

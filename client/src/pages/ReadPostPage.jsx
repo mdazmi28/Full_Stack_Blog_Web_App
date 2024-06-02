@@ -2,23 +2,23 @@ import MasterLayout from "../components/MasterLayout.jsx";
 // import Loader from "../components/Loader.jsx";
 import Card from "../components/Card.jsx";
 import {useEffect, useState} from "react";
-import {posts} from "../APIRequest/APIRequest.js";
+import {blogs} from "../APIRequest/APIRequest.js";
 import Loader from "../components/Loader.jsx";
 
 const ReadPostPage = () => {
-    const [Posts, setPosts] = useState([])
+    const [Blog, setBlogs] = useState([])
 
     useEffect(() => {
         (async ()=>{
-            let res = await posts()
-            setPosts(res)
+            let res = await blogs()
+            setBlogs(res)
         })()
     }, []);
     return (
         <MasterLayout>
             <div className="container mx-auto">
-                {Posts.length > 0 ? (
-                    <Card item={Posts} />
+                {Blog.length > 0 ? (
+                    <Card item={Blog} />
                 ) : (
                     <Loader /> // Display a loader while fetching data
                 )}

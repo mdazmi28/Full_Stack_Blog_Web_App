@@ -7,8 +7,6 @@ class BlogCategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BlogSerializer(serializers.ModelSerializer):
-    category = BlogCategorySerializer(read_only=True)  # Nested serializer to show category details
-
     class Meta:
         model = BlogModel
         fields = '__all__'
