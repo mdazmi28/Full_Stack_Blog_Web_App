@@ -1,0 +1,5 @@
+1. create react project with vite
+2. install axios
+3. install react-router-dom
+4. install tailwind css
+5. install daisyui
