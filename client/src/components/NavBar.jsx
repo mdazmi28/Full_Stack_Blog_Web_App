@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from "react";
 import {categories} from "../APIRequest/APIRequest.js";
+import {NavLink} from "react-router-dom";
 
 const NavBar = () => {
 
@@ -24,7 +25,7 @@ const NavBar = () => {
         document.querySelector("html").setAttribute("data-theme", localTheme);
     }, [theme]);
     return (
-        <div className="navbar bg-base-100 px-10">
+        <div className="navbar fixed top-0 z-50 bg-base-100 px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +40,7 @@ const NavBar = () => {
                         
                         {
                             Categories.map((item, index) => (
-                                <li key={index}><a>{item['category']}</a></li>
+                                <li key={index}><NavLink to={"/category/"+ item['id']}>{item['category']}</NavLink></li>
                             ))
                         }
                     </ul>
@@ -48,10 +49,10 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    
+                    <li><NavLink to={"/"}>Home</NavLink></li>
                     {
                         Categories.map((item, index) => (
-                            <li key={index}><a>{item['category']}</a></li>
+                            <li key={index}><NavLink to={"/category/" + item['id']}>{item['category']}</NavLink></li>
                         ))
                     }
                 </ul>

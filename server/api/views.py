@@ -1,3 +1,4 @@
+# views
 from django.shortcuts import render
 from .models import *
 from .serializers import *
@@ -36,3 +37,20 @@ class BlogCategoryUpdateView(generics.RetrieveUpdateAPIView):
 class BlogCategoryDeleteView(generics.DestroyAPIView):
     queryset = BlogCategoryModel.objects.all()
     serializer_class = BlogCategorySerializer
+    
+    
+# Custom view to get blogs by category ID
+class BlogsByCategoryView(generics.ListAPIView):
+    serializer_class = BlogSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return BlogModel.objects.filter(category_id=category_id)
+
+# search by ID
+class BlogsDetailsView(generics.ListAPIView):
+    serializer_class = BlogSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['id']
+        return BlogModel.objects.filter(id=id)

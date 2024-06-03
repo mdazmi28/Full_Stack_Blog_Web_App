@@ -7,7 +7,9 @@ const MasterLayout = (props) => {
     return (
         <div>
             <NavBar/>
-            {props.children}
+            <div className="pt-16">
+                {props.children}
+            </div>
             <Footer/>
         </div>
     );

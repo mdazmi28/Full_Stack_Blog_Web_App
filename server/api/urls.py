@@ -12,4 +12,8 @@ urlpatterns = [
     path('categories/', BlogCategoryReadView.as_view(), name='category-list'),
     path('categories/update/<int:pk>/', BlogCategoryUpdateView.as_view(), name='category-update'),
     path('categories/delete/<int:pk>/', BlogCategoryDeleteView.as_view(), name='category-delete'),
+    
+    # Blogs by category
+    path('blogs/<int:category_id>/', BlogsByCategoryView.as_view(), name='blogs-by-category'),
+    path('blogs/details/<int:id>/', BlogsDetailsView.as_view(), name='blogs-by-view'),
 ]

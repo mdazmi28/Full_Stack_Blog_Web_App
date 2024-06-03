@@ -2,7 +2,7 @@
 
 const Loader = () => {
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center content-center'>
             <span className="loading loading-bars loading-lg"></span>
         </div>
     );

@@ -20,3 +20,24 @@ export async function blogs() {
         return  [];
     }
 }
+
+export async function blogsByCategory(id) {
+    let res = await axios.get(baseURL + '/blogs/'+id);
+    if(res.status === 200){
+        return res.data;
+    }
+    else{
+        return  [];
+    }
+}
+
+// blogs/details/
+export async function blogsDetails(id) {
+    let res = await axios.get(baseURL + '/blogs/details/'+id);
+    if(res.status === 200){
+        return res.data;
+    }
+    else{
+        return  [];
+    }
+}
