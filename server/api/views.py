@@ -5,6 +5,8 @@ from .serializers import *
 from rest_framework import generics
 
 # Create your views here.
+
+#--------------------------------- Blog -------------------------------------#
 class BlogCreateView(generics.ListCreateAPIView):
     queryset = BlogModel.objects.all()
     serializer_class = BlogSerializer
