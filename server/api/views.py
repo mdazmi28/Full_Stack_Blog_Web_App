@@ -39,7 +39,7 @@ class BlogCategoryDeleteView(generics.DestroyAPIView):
     serializer_class = BlogCategorySerializer
     
     
-# Custom view to get blogs by category ID
+# Custom view to get blogs by category_ID
 class BlogsByCategoryView(generics.ListAPIView):
     serializer_class = BlogSerializer
 
