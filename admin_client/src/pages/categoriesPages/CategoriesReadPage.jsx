@@ -1,10 +1,11 @@
-import React from 'react';
+// import React from 'react';
+import MasterLayout from "../../components/MasterLayout.jsx";
 
 const CategoriesReadPage = () => {
     return (
-        <div>
-            
-        </div>
+        <MasterLayout>
+            Read PAge
+        </MasterLayout>
     );
 };
 
