@@ -2,9 +2,9 @@
 import 'react-toastify/dist/ReactToastify.css';
 import MasterLayout from "../../components/MasterLayout.jsx";
 import {useRef} from "react";
-
 import {postCategory} from "../../apiRequest/apiServices.js";
 import {toast, ToastContainer } from "react-toastify";
+import {Result} from "postcss";
 
 
 const CategoriesAddPage = () => {
@@ -16,6 +16,11 @@ const CategoriesAddPage = () => {
         });
     };
 
+    const SuccessToast = (msg) => {
+        toast.success(msg, {
+            position: "bottom-right"
+        });
+    };
 
     const SaveData = ()=>{
         let categoryName = category.value
@@ -23,9 +28,13 @@ const CategoriesAddPage = () => {
         if(categoryName.length === 0){
             ErrorToast("The Field is empty!")
         }else {
-            postCategory(
-
-            )
+            postCategory(categoryName).then((Result)=>{
+                if(Result===true){
+                    SuccessToast("Category Added Successfully!")
+                }else {
+                    ErrorToast("Something went wrong!")
+                }
+            })
         }
     }
     return (
