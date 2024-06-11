@@ -4,7 +4,7 @@ import MasterLayout from "../../components/MasterLayout.jsx";
 import {useRef} from "react";
 import {postCategory} from "../../apiRequest/apiServices.js";
 import {toast, ToastContainer } from "react-toastify";
-import {Result} from "postcss";
+
 
 
 const CategoriesAddPage = () => {
@@ -24,7 +24,7 @@ const CategoriesAddPage = () => {
 
     const SaveData = ()=>{
         let categoryName = category.value
-        // alert(categoryName.length)
+        alert(categoryName.length)
         if(categoryName.length === 0){
             ErrorToast("The Field is empty!")
         }else {
