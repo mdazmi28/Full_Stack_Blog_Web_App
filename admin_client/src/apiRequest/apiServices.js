@@ -77,13 +77,9 @@ export async function postCategory(category) {
     const postBody = { category };
     try {
         const res = await axios.post(URL, postBody);
-        if (res.status === 200 || res.status === 201) {
-            return res.data;
-        } else {
-            return false;
-        }
+        return res.status === 201;
     } catch (err) {
-        console.log(err);
+        console.error("API Error:", err); // Debugging log
         return false;
     }
 }
@@ -108,7 +104,6 @@ export async function readCategory() {
 export async function updateCategory(id, category) {
     const URL = `${baseURL}/categories/update/${id}`;
     const postBody = { category }; // Define postBody
-
     try {
         const res = await axios.put(URL, postBody);
         if (res.status === 200 || res.status === 204) {
