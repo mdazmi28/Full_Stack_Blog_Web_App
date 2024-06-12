@@ -9,13 +9,13 @@ const CategoriesAddPage = () => {
 
     const ErrorToast = (msg) => {
         toast.error(msg, {
-            position: "bottom-right"
+            position: "top-right"
         });
     };
 
     const SuccessToast = (msg) => {
         toast.success(msg, {
-            position: "bottom-right"
+            position: "top-right"
         });
     };
 
