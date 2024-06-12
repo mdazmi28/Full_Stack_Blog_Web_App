@@ -1,11 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import MasterLayout from "../../components/MasterLayout.jsx";
 import { postCategory } from "../../apiRequest/apiServices.js";
 import { toast, ToastContainer } from "react-toastify";
+import FullScreenLoader from "../../components/FullScreenLoader.jsx";
 
 const CategoriesAddPage = () => {
     const categoryRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const ErrorToast = (msg) => {
         toast.error(msg, {
@@ -26,6 +28,7 @@ const CategoriesAddPage = () => {
         if (categoryName.length === 0) {
             ErrorToast("The field is empty!");
         } else {
+            setIsLoading(true); // Show loader
             try {
                 const result = await postCategory(categoryName);
                 console.log("Post Result:", result); // Debugging log
@@ -39,6 +42,8 @@ const CategoriesAddPage = () => {
             } catch (err) {
                 console.error("Error posting category:", err); // Debugging log
                 ErrorToast("Something went wrong!");
+            } finally {
+                setIsLoading(false); // Hide loader
             }
         }
     };
@@ -61,6 +66,7 @@ const CategoriesAddPage = () => {
                 </div>
             </div>
             <ToastContainer />
+            {isLoading && <FullScreenLoader />}
         </MasterLayout>
     );
 };

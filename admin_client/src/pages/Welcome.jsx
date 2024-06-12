@@ -1,5 +1,6 @@
-import React from 'react';
+
 import MasterLayout from "../components/MasterLayout.jsx";
+import {Link} from "react-router-dom";
 
 const Welcome = () => {
     return (
@@ -17,7 +18,7 @@ const Welcome = () => {
                     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
                         <h1>Categories</h1>
-                        <li><a>Sidebar Item 1</a></li>
+                        <li><Link to={"/create/categories"}>Add Category</Link></li>
                         <li><a>Sidebar Item 2</a></li>
                     </ul>
                 </div>
