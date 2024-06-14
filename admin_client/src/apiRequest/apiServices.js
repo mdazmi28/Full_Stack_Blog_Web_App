@@ -86,7 +86,7 @@ export async function postCategory(category) {
 
 
 export async function readCategory() {
-    const URL = `${baseURL}/categories`;
+    const URL = `${baseURL}/categories/`;
     try {
         const res = await axios.get(URL);
         if (res.status === 200) {

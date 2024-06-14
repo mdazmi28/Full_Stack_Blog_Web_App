@@ -19,7 +19,7 @@ const Welcome = () => {
                         {/* Sidebar content here */}
                         <h1>Categories</h1>
                         <li><Link to={"/create/categories"}>Add Category</Link></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><Link to={"/read/categories"}>Read</Link></li>
                     </ul>
                 </div>
             </div>
