@@ -28,6 +28,7 @@ const AppBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
+                        <li><Link to="/">Home</Link></li>
                         <li><Link to="/read/categories">Categories</Link></li>
                         <li><a>Item 3</a></li>
                     </ul>

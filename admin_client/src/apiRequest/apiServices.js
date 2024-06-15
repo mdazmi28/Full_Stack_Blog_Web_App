@@ -75,7 +75,9 @@ let baseURL = 'http://127.0.0.1:8000/api'
 
 export async function postCategory(category) {
     const URL = `${baseURL}/categories/create/`;
-    const postBody = { category };
+    const postBody = {
+        category: category
+    };
     try {
         const res = await axios.post(URL, postBody);
         return res.status === 201;
