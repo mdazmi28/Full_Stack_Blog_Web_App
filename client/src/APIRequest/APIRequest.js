@@ -3,7 +3,9 @@ import axios from "axios";
 const baseURL = 'http://127.0.0.1:8000/api';
 
 export async function categories() {
-    let res = await axios.get(baseURL + '/categories');
+    let URL = `${baseURL}/categories/`;
+    // let res = await axios.get(baseURL + '/categories/');
+    let res = await axios.get(URL);
     if (res.status === 200) {
         return res.data;
     }else {
@@ -12,7 +14,9 @@ export async function categories() {
 }
 
 export async function blogs() {
-    let res = await axios.get(baseURL + '/blogs');
+    let URL = `${baseURL}/blogs/`;
+    // let res = await axios.get(baseURL + '/blogs/');
+    let res = await axios.get(URL);
     if(res.status === 200){
         return res.data;
     }
@@ -22,7 +26,9 @@ export async function blogs() {
 }
 
 export async function blogsByCategory(id) {
-    let res = await axios.get(baseURL + '/blogs/'+id);
+    let URL = `${baseURL}/blogs/${id}/`;
+    let res = await axios.get(URL);
+    // let res = await axios.get(baseURL + '/blogs/'+id+'/');
     if(res.status === 200){
         return res.data;
     }
@@ -33,7 +39,9 @@ export async function blogsByCategory(id) {
 
 // blogs/details/
 export async function blogsDetails(id) {
-    let res = await axios.get(baseURL + '/blogs/details/'+id);
+    let URL = `${baseURL}/blogs/details/${id}/`;
+    // let res = await axios.get(baseURL + '/blogs/details/'+id+'/');
+    let res = await axios.get(URL);
     if(res.status === 200){
         return res.data;
     }
