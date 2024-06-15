@@ -7,7 +7,7 @@ const CategoriesList = (props) => {
     return (
         <div className="container mx-auto p-6 bg-gray-100">
             <button className="btn btn-primary">
-                <Link to={"/"}>+ADD</Link>
+                <Link to="/add/categories">+ADD</Link>
             </button>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border border-gray-200">

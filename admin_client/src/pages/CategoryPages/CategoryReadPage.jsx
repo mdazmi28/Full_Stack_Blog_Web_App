@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {readCategory} from "../../apiRequest/apiServices.js";
 import MasterLayout from "../../components/MasterLayout.jsx";
 import CategoryReadComponent from "../../components/CategoryComponents/CategoryReadComponent.jsx";
