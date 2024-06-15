@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = 'http://127.0.0.1:8000/api'
+let baseURL = 'http://127.0.0.1:8000/api'
+
 
 // export function postBlog(title, description, img, img_description, category){
 //     let URL = `${baseURl}/blogs/create`
@@ -121,7 +122,7 @@ export async function updateCategory(id, category) {
 export function deleteCategory(id) {
     const URL = `${baseURL}/categories/delete/${id}`;
     return axios.delete(URL)
-        .then(res => res.status === 200)
+        .then(res => res.status === 204)
         .catch(err => {
             console.log(err);
             return false;
