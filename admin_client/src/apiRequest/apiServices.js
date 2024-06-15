@@ -106,7 +106,9 @@ export async function readCategory() {
 
 export async function updateCategory(id, category) {
     const URL = `${baseURL}/categories/update/${id}/`;
-    const postBody = { category };
+    const postBody = {
+        category : category
+    };
     try {
         const res = await axios.put(URL, postBody);
         console.log('Response:', res); // Log the response
