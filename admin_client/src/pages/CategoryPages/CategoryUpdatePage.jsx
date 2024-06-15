@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { postCategory } from '../../apiRequest/apiServices.js';
+import {updateCategory} from '../../apiRequest/apiServices.js';
 import MasterLayout from "../../components/MasterLayout.jsx";
 import { ToastContainer, toast } from "react-toastify"; // Adjust the path if your file structure is different
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router";
+import {useNavigate, useParams} from "react-router";
 
-const CategoryAddPage = () => {
+const CategoryUpdatePage = () => {
     const [category, setCategory] = useState('');
     const navigate = useNavigate(); // Initialize useNavigate
+    const {id} = useParams();
 
     const SuccessToast = (msg) => {
         toast.success(msg, {
@@ -27,7 +28,7 @@ const CategoryAddPage = () => {
             ErrorToast('Category cannot be empty.');
         }
         try{
-            const res = await postCategory(category);
+            const res = await updateCategory(id, category);
             if (res) {
                 SuccessToast('Category created successfully!');
                 setTimeout(() => {
@@ -61,7 +62,7 @@ const CategoryAddPage = () => {
                         type="submit"
                         className="w-full px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Submit
+                        Update
                     </button>
                 </form>
             </div>
@@ -70,4 +71,4 @@ const CategoryAddPage = () => {
     );
 };
 
-export default CategoryAddPage;
+export default CategoryUpdatePage;

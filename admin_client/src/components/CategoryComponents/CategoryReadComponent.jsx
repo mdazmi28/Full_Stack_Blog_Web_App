@@ -1,14 +1,21 @@
-import React from 'react';
 import {Link} from "react-router-dom";
+import axios from "axios";
+import {deleteCategory} from "../../apiRequest/apiServices.js";
 
 const CategoriesList = (props) => {
 
+    const handleDelete = async (id) =>{
+        try {
+            await deleteCategory(id)
+            window.location.reload();
+        }catch (error) {
+            console.log(error)
+        }
+
+    }
 
     return (
         <div className="container mx-auto p-6 bg-gray-100">
-            <button className="btn btn-primary">
-                <Link to="/add/categories">+ADD</Link>
-            </button>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border border-gray-200">
                     <thead>
@@ -20,20 +27,18 @@ const CategoriesList = (props) => {
                     </thead>
                     <tbody>
                     {
+                        // eslint-disable-next-line react/prop-types
                         props.items.map((category, index) => (
                             <tr key={index}>
                                 <td className="px-4 py-2 border-b text-zinc-950">{category.category}</td>
                                 <td className="px-4 py-2 border-b text-center">
-                                    <button
-                                        onClick={() => handleUpdate(row.id)}
-                                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                                    >
-                                        Update
+                                    <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                        <Link to={`/update/categories/${category['id']}`}>Update</Link>
                                     </button>
                                 </td>
                                 <td className="px-4 py-2 border-b text-center">
                                     <button
-                                        onClick={() => handleDelete(row.id)}
+                                        onClick={(e) => handleDelete(category['id'])}
                                         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
                                     >
                                         Delete

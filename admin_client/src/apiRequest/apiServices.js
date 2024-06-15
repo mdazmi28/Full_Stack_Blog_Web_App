@@ -103,24 +103,27 @@ export async function readCategory() {
 
 
 export async function updateCategory(id, category) {
-    const URL = `${baseURL}/categories/update/${id}`;
-    const postBody = { category }; // Define postBody
+    const URL = `${baseURL}/categories/update/${id}/`;
+    const postBody = { category };
     try {
         const res = await axios.put(URL, postBody);
-        if (res.status === 200 || res.status === 204) {
+        console.log('Response:', res); // Log the response
+        if (res.status === 200) {
             return res.data;
         } else {
+            console.error('Unexpected response status:', res.status); // Log unexpected status
             return false;
         }
     } catch (err) {
-        console.log("Error in updateCategory:", err);
+        console.error("Error in updateCategory:", err.response ? err.response.data : err.message); // Log detailed error
         return false;
     }
 }
 
 
+
 export function deleteCategory(id) {
-    const URL = `${baseURL}/categories/delete/${id}`;
+    const URL = `${baseURL}/categories/delete/${id}/`;
     return axios.delete(URL)
         .then(res => res.status === 204)
         .catch(err => {
