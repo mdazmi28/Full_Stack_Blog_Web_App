@@ -7,9 +7,12 @@ class BlogCategorySerializer(serializers.ModelSerializer):
         model = BlogCategoryModel
         fields = '__all__'
 
+
 class BlogSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.category', read_only=True)
+
     class Meta:
         model = BlogModel
-        fields = '__all__'
-
+        fields = ['id', 'title', 'description', 'img', 'img_description', 'created_at', 'updated_at', 'category', 'category_name']
+        #fields = '__all__'
 
