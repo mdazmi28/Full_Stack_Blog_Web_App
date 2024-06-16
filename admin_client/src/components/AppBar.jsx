@@ -30,7 +30,7 @@ const AppBar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/read/categories">Categories</Link></li>
-                        <li><a>Item 3</a></li>
+                        <li><Link to="/read/blogs">Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react';
 import {readCategory} from "../../apiRequest/apiServices.js";
 import MasterLayout from "../../components/MasterLayout.jsx";
 import CategoryReadComponent from "../../components/CategoryComponents/CategoryReadComponent.jsx";
-import FullScreenLoader from "../../components/FullScreenLoader.jsx";
 import {Link} from "react-router-dom";
 import {toast} from "react-toastify";
 

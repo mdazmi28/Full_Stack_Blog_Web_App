@@ -4,6 +4,7 @@ import Welcome from './pages/Welcome.jsx';
 import CategoryReadPage from './pages/CategoryPages/CategoryReadPage.jsx';
 import CategoryAddPage from "./pages/CategoryPages/CategoryAddPage.jsx";
 import CategoryUpdatePage from "./pages/CategoryPages/CategoryUpdatePage.jsx";
+import BlogReadPage from "./pages/BlogPages/BlogReadPage.jsx";
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
                 <Route path="/read/categories" element={<CategoryReadPage />} />
                 <Route path="/add/categories" element={<CategoryAddPage />} />
                 <Route path="/update/categories/:id" element={<CategoryUpdatePage />} />
+                <Route path="/read/blogs" element={<BlogReadPage />} />
             </Routes>
         </BrowserRouter>
     );

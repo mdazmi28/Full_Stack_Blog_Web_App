@@ -24,19 +24,19 @@ let baseURL = 'http://127.0.0.1:8000/api'
 //     });
 // }
 //
-// export function readBlog(){
-//     let URL = `${baseURl}/blogs`
-//     return axios.get(URL).then((res)=>{
-//         if(res.status === 200){
-//             return res.data
-//         }else{
-//             return false
-//         }
-//     }).catch((err)=>{
-//         console.log(err)
-//         return false
-//     })
-// }
+export function readBlog(){
+    let URL = `${baseURL}/blogs/`
+    return axios.get(URL).then((res)=>{
+        if(res.status === 200){
+            return res.data
+        }else{
+            return false
+        }
+    }).catch((err)=>{
+        console.log(err)
+        return false
+    })
+}
 //
 // export function updateBlog(id){
 //     let URL = `${baseURl}/blogs/update/${id}`
