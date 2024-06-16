@@ -1,6 +1,15 @@
 import {Link} from "react-router-dom";
+import {deleteBlog} from "../../apiRequest/apiServices.js";
 
 const BlogReadComponent = (props) => {
+    const handleDelete = async (id) =>{
+        try{
+            await deleteBlog(id)
+            window.location.reload();
+        }catch (error){
+            console.log(error)
+        }
+    }
     return (
         <div className="container mx-auto p-6 bg-gray-100">
             <div className="overflow-x-auto">
@@ -26,8 +35,7 @@ const BlogReadComponent = (props) => {
                                 <td className="px-4 py-2 border-b text-zinc-950">{blogs.description}</td>
                                 <td className="px-4 py-2 border-b text-center">
                                     <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-                                        {/*<Link to={`/update/categories/${blogs['id']}`}>Update</Link>*/}
-                                        Update
+                                        <Link to={`/update/blogs/${blogs['id']}`}>Update</Link>
                                     </button>
                                 </td>
                                 <td className="px-4 py-2 border-b text-center">

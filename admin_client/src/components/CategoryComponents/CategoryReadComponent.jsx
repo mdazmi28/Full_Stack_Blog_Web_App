@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import axios from "axios";
 import {deleteCategory} from "../../apiRequest/apiServices.js";
 
 const CategoriesList = (props) => {

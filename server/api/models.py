@@ -13,7 +13,6 @@ class BlogModel(models.Model):
     description = models.CharField(max_length=255)
     category = models.ForeignKey(BlogCategoryModel, on_delete=models.CASCADE)
     img = models.CharField(max_length=255)
-    img_description = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

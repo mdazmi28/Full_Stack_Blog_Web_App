@@ -13,6 +13,6 @@ class BlogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BlogModel
-        fields = ['id', 'title', 'description', 'img', 'img_description', 'created_at', 'updated_at', 'category', 'category_name']
+        fields = ['id', 'title', 'description', 'img', 'created_at', 'updated_at', 'category', 'category_name']
         #fields = '__all__'
 

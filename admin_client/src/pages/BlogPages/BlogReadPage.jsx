@@ -19,7 +19,7 @@ const BlogReadPage = () => {
         <MasterLayout>
             <div className="container mx-auto p-6 bg-gray-100">
                 <button className="btn btn-primary">
-                    <Link to="/add/categories">+ADD</Link>
+                    <Link to="/add/blogs">+ADD</Link>
                 </button>
             </div>
 
